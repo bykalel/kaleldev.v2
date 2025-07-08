@@ -13,7 +13,7 @@ const initTooltips = () => {
 };
 
 const loadPage = async (page) => {
-  const path = `/src/routes/${page}.html`;
+  const path = `/routes/${page}.html`;
   try {
     const res = await fetch(path);
     if (!res.ok) throw new Error("Página não encontrada");
