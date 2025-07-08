@@ -1,0 +1,12 @@
+:root {
+  --background: url("/images/bg-blurry-gradient-white.png");
+  --foreground: #202020;
+  --font-main: 'Inter', sans-serif;
+  --icon-color: #202020;
+}
+
+[data-theme="dark"] {
+  --background: url("/images/bg-blurry-gradient-black.png");
+  --foreground: #fff;
+  --icon-color: #fff;
+}
