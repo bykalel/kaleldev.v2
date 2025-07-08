@@ -1,7 +1,7 @@
 import "../style.css";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import { renderSocialIcons } from "../components/socialIcon.js";
+import { renderSocialIcons } from "../../public/components/socialIcon.js";
 AOS.init();
 
 // Inicializa tooltips do Bootstrap em todo o documento
@@ -192,4 +192,4 @@ const loadComponent = async (id, path) => {
   }
 };
 
-loadComponent("header", "/src/components/header.html");
+loadComponent("header", "/components/header.html");
