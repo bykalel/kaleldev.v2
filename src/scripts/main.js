@@ -6,8 +6,10 @@ AOS.init();
 
 // Inicializa tooltips do Bootstrap em todo o documento
 const initTooltips = () => {
-  const tooltipTriggerList = [...document.querySelectorAll('[data-bs-toggle="tooltip"]')];
-  tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
+  const tooltipTriggerList = [
+    ...document.querySelectorAll('[data-bs-toggle="tooltip"]'),
+  ];
+  tooltipTriggerList.forEach((el) => new bootstrap.Tooltip(el));
 };
 
 const loadPage = async (page) => {
@@ -77,29 +79,41 @@ const startIdadeLiveUpdate = (dataNascimento) => {
   intervalId = setInterval(atualizarIdade, 100); // atualiza a cada 100ms
 };
 const renderArtGallery = () => {
-  const gallery = document.getElementById("art-gallery");
-  if (!gallery) return;
+  const container = document.getElementById("art-gallery");
+  if (!container) return;
 
-  const imageCount = 14;
-  for (let i = 1; i <= imageCount; i++) {
-    const col = document.createElement("div");
-    col.className = "col-md-6 col-lg-4";
-    col.setAttribute("data-aos", "fade-up");
+  let current = 0;
+  const total = 14; // ou quantas imagens tiver
+  const batchSize = 6;
 
-    const wrapper = document.createElement("div");
-    wrapper.className = "border rounded-4 overflow-hidden shadow-sm";
-    wrapper.style.background = "#fff";
-    wrapper.style.padding = "0.5rem";
+  const loadImages = () => {
+    for (let i = total - current; i > total - current - batchSize && i >= 1; i--) {
+      const div = document.createElement("div");
+      div.className = "masonry-item";
+      div.setAttribute("data-aos", "fade-up");
 
-    const img = document.createElement("img");
-    img.src = `/images/projects/${i}.png`; // ou .png, conforme seu projeto
-    img.alt = `Artwork ${i}`;
-    img.className = "img-fluid rounded-3";
+      const img = document.createElement("img");
+      img.src = `/images/projects/${i}.png`;
+      img.alt = `Artwork ${i}`;
 
-    wrapper.appendChild(img);
-    col.appendChild(wrapper);
-    gallery.appendChild(col);
-  }
+      div.appendChild(img);
+      container.appendChild(div);
+    }
+
+    current += batchSize;
+    AOS.refresh();
+  };
+
+  loadImages();
+
+  window.addEventListener("scroll", () => {
+    if (
+      window.innerHeight + window.scrollY >= document.body.offsetHeight - 300 &&
+      current < total
+    ) {
+      loadImages();
+    }
+  });
 };
 
 const router = async () => {
