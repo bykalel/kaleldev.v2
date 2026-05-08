@@ -99,12 +99,15 @@ h1 {
   color: #202020; /* cor do texto selecionado */
 }
 .language-icons {
-  display: flex;
-  flex-wrap: wrap; /* Permite as imagens quebrarem linha */
-  justify-content: center; /* Centraliza horizontalmente as imagens */
-  gap: 12px; /* Espaço entre as imagens */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
+  gap: 16px;
+  padding: 12px 16px;
 
   img {
+    width: 25px;
+    height: 25px;
+    justify-self: center;
     transition: transform 0.3s ease;
     &:hover {
       transform: scale(1.1);
@@ -116,6 +119,101 @@ h1 {
 }
 [data-theme="dark"] .learning img {
   filter: invert(100%);
+}
+
+.dev-bio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.dev-bio-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  .dev-bio-divider {
+    height: 1px;
+    background: #cccccc;
+    width: 100%;
+  }
+
+  p {
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+}
+
+[data-theme="dark"] .dev-bio-card .dev-bio-divider {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tech-stack-container {
+  padding: 16px 22px;
+
+  .tech-category {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+
+    .tech-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #aaa;
+      min-width: 56px;
+      flex-shrink: 0;
+    }
+
+    .tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+
+      img {
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
+  .tech-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.07);
+    margin: 2px 0;
+  }
+}
+
+[data-theme="dark"] .tech-stack-container img {
+  filter: invert(100%);
+}
+
+[data-theme="dark"] .tech-stack-container .tech-divider {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .tech-stack-container .tech-label {
+  color: #555;
 }
 .learning {
   display: flex;
