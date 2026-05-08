@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(New-Item -Path \"C:\\\\Users\\\\Administrator\\\\dev\\\\projects\\\\kaleldev.v2\\\\public\\\\icons\\\\itau.svg\" -ItemType File -Force)",
+      "Bash(Out-Null)",
+      "Bash(Write-Output \"created\")"
+    ]
+  }
+}
