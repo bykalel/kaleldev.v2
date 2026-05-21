@@ -173,7 +173,7 @@ h1 {
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #aaa;
+      color: #202020;
       min-width: 56px;
       flex-shrink: 0;
     }
@@ -202,6 +202,10 @@ h1 {
     background: rgba(0, 0, 0, 0.07);
     margin: 2px 0;
   }
+}
+
+[data-theme="dark"] .tech-stack-container .tech-label {
+  filter: invert(100%);
 }
 
 [data-theme="dark"] .tech-stack-container img {
