@@ -138,6 +138,10 @@ h1 {
   gap: 10px;
   text-align: left;
 
+  @media (max-width: 768px) {
+    margin-top: 5vh;
+  }
+
   h3 {
     font-weight: 600;
     font-size: 1.05rem;
@@ -308,6 +312,11 @@ h1 {
 }
 
 @keyframes scroll-bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
 }
