@@ -1,7 +1,7 @@
 export function renderSocialIcons() {
   const socialLinks = [
     {
-      href: "https://github.com/kalellz",
+      href: "https://github.com/bykalel",
       src: "/icons/github.svg",
       alt: "GitHub",
       label: "GitHub"
